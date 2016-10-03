@@ -10,25 +10,17 @@ using System.Windows.Forms;
 
 namespace Account
 {
-    public partial class Form1 : Form
+    public partial class Form2 : Form
     {
-        public Form1()
+        public Form2()
         {
             InitializeComponent();
         }
 
-        List<string> accounts = new List<string>();
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void btmAddNew_Click(object sender, EventArgs e)
         {
+            string newAcount = tbxNew.Text;
             
-            
-        }
-
-        private void btmAdd_Click(object sender, EventArgs e)
-        {
-            Form2 AddWin = new Form2();
-            AddWin.Show();
         }
     }
 }
