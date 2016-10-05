@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lbTitle = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listAccounts = new System.Windows.Forms.ListBox();
             this.btmAdd = new System.Windows.Forms.Button();
             this.btmVer = new System.Windows.Forms.Button();
             this.btmDel = new System.Windows.Forms.Button();
@@ -43,17 +43,17 @@
             this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitle.Location = new System.Drawing.Point(13, 13);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(97, 20);
+            this.lbTitle.Size = new System.Drawing.Size(164, 20);
             this.lbTitle.TabIndex = 0;
-            this.lbTitle.Text = "Account List";
+            this.lbTitle.Text = "Account Maintenance";
             // 
-            // listBox1
+            // listAccounts
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(13, 37);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(144, 186);
-            this.listBox1.TabIndex = 1;
+            this.listAccounts.FormattingEnabled = true;
+            this.listAccounts.Location = new System.Drawing.Point(13, 37);
+            this.listAccounts.Name = "listAccounts";
+            this.listAccounts.Size = new System.Drawing.Size(144, 186);
+            this.listAccounts.TabIndex = 1;
             // 
             // btmAdd
             // 
@@ -91,6 +91,7 @@
             this.btmClear.TabIndex = 5;
             this.btmClear.Text = "Clear List";
             this.btmClear.UseVisualStyleBackColor = true;
+            this.btmClear.Click += new System.EventHandler(this.btmClear_Click);
             // 
             // btmExit
             // 
@@ -100,18 +101,20 @@
             this.btmExit.TabIndex = 6;
             this.btmExit.Text = "Exit";
             this.btmExit.UseVisualStyleBackColor = true;
+            this.btmExit.Click += new System.EventHandler(this.btmExit_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(280, 238);
+            this.ControlBox = false;
             this.Controls.Add(this.btmExit);
             this.Controls.Add(this.btmClear);
             this.Controls.Add(this.btmDel);
             this.Controls.Add(this.btmVer);
             this.Controls.Add(this.btmAdd);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listAccounts);
             this.Controls.Add(this.lbTitle);
             this.Name = "Form1";
             this.Text = "Account Maintenance";
@@ -124,7 +127,7 @@
         #endregion
 
         private System.Windows.Forms.Label lbTitle;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listAccounts;
         private System.Windows.Forms.Button btmAdd;
         private System.Windows.Forms.Button btmVer;
         private System.Windows.Forms.Button btmDel;
