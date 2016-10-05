@@ -20,23 +20,17 @@ namespace Account
 
         private void btmAddNew_Click(object sender, EventArgs e)
         {
-            // Open the file where the new number will be stored
-            StreamWriter newAcct = File.AppendText("Accounts.txt");
-            int newNumber = 0;
-            if (int.TryParse(tbxNew.Text, out newNumber))// Convert the text(string) to number(int)
-            {
-                newAcct.WriteLine(newNumber); // Write the number to the file
-                newAcct.Close();
-                Form1 frm = new Form1();
-                frm.Show();
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("Mising or Not numeric", "Account", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            Close();
         }
 
+        public int num1
+        {
+            get
+            {
+                int number = int.Parse(tbxNew.Text);
+                return number;
+            }
+        }
         private void cancel_Click(object sender, EventArgs e)
         {
             Close();

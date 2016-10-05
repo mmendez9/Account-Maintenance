@@ -17,34 +17,47 @@ namespace Account
         {
             InitializeComponent();
         }
+
+        Form2 frm = new Form2();
+        List<int> accounts = new List<int>();
+
         private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
-                string number;
-                // Open the file
-                StreamReader file = File.OpenText("Accounts.txt");
-                while (!file.EndOfStream)
+                string n;
+                // Open the file to set it in the list box
+                StreamReader input = File.OpenText("accts.txt");
+                
+                while (!input.EndOfStream)
                 {
-                    number = file.ReadLine();
-                    listAccounts.Items.Add(number); // Add the number in file to the list box
+                    n = input.ReadLine();
+                    listAccounts.Items.Add(n);
                 }
-                file.Close();
-                Refresh();
+                input.Close();
             }
             catch (Exception)
             {
                 MessageBox.Show("File doesn't found", "File Error", 
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+            accounts.Add(nu);
+            accounts.Sort();
+        }
+
+        public int nu
+        {
+            get
+            {
+                int num = frm.num1;
+                return num;
+            }
         }
 
         private void btmAdd_Click(object sender, EventArgs e)
         {
-            Form2 AddWin = new Form2();
-            AddWin.Show();
-
+            frm.Show();
+            
         }
 
         private void btmClear_Click(object sender, EventArgs e)
@@ -54,7 +67,7 @@ namespace Account
             DialogResult result = new DialogResult();
             if (result == DialogResult.Yes)
             {
-                StreamWriter file = File.CreateText("Accounts.txt");
+                StreamWriter file = File.CreateText("accts.txt");
                 file.WriteLine("");
                 file.Close();
                 Refresh();
@@ -63,7 +76,14 @@ namespace Account
 
         private void btmExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //Write the new accounts added to the file
+            StreamWriter file = File.AppendText("accts.txt");
+            foreach (int n in accounts)
+            {
+                file.WriteLine(n);
+            }
+            file.Close();
+            Close();
         }       
     }
 }
